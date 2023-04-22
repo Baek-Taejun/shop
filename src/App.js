@@ -7,7 +7,7 @@ import { useState } from 'react';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './pages/Detail.js'
-
+import axios from 'axios';
 
 
 function App() {
@@ -18,8 +18,6 @@ function App() {
     "https://image.msscdn.net/images/goods_img/20190228/969541/969541_2_125.jpg",
     "https://image.msscdn.net/images/goods_img/20220406/2469965/2469965_1_125.jpg"
 ])
-
-
   let navigate = useNavigate();
 
 
@@ -64,7 +62,14 @@ function App() {
           </Route>
 
         </Routes>
-      
+        
+        <button onClick={()=>{
+        axios.get('https://codingapple1.github.io/shop/data2.json')
+        .then((data)=>{ 
+          console.log(data.data) })
+      }}>버튼</button>
+
+
     </div>
   );
 } 
@@ -74,6 +79,9 @@ function App() {
         <h4>오늘의 이벤트</h4> 
         <Outlet></Outlet>
       </div>
+
+  
+
     )
   }
 
