@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import styled from "styled-components";
+import Nav from 'react-bootstrap/Nav';
 
 let YellowBtn = styled.button `
     background : ${props => props.bg};
@@ -20,6 +21,8 @@ function Detail(props) {
         setIsVisible] = useState(true);
     let [num,
         setNum] = useState('');
+    let [tap,setTap] = useState(0);
+
 
     useEffect(() => {
         if (isNaN(num) == true) {
@@ -60,8 +63,35 @@ function Detail(props) {
                     <button className="btn btn-danger">주문하기</button>
                 </div>
             </div>
+
+
+            <Nav variant="tabs" defaultActiveKey="/link-1">
+        <Nav.Item>
+            <Nav.Link onClick={()=>{setTap(0)}}  eventKey="link-1">버튼1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+            <Nav.Link onClick={()=>{setTap(1)}} eventKey="link-2">버튼2</Nav.Link>
+        </Nav.Item> 
+        <Nav.Item>
+            <Nav.Link onClick={()=>{setTap(2)}}  eventKey="link-3">버튼3</Nav.Link>
+        </Nav.Item>
+    </Nav>
+
+    <TapContent tap={tap}/>
+
+
         </div>
     )
 }
 
+function TapContent({tap}){
+// if(props.tap == 0){
+//     return <div>내용1</div>
+// } else if (props.tap == 1){
+//     return <div>내용2</div>
+// } else if (props.tap == 2){
+//     return <div>내용3</div>
+// }
+return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tap]
+}
 export default Detail;

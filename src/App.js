@@ -7,12 +7,12 @@ import { useState } from 'react';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './pages/Detail.js'
-import axios from 'axios';
+import axios from 'axios'
 
 
 function App() {
 
-  let [ shoes ] = useState(data)
+  let [ shoes, setShoes ] = useState(data)
   let [img, setImg] = useState([
     "https://image.msscdn.net/images/goods_img/20160224/311052/311052_1_125.jpg",
     "https://image.msscdn.net/images/goods_img/20190228/969541/969541_2_125.jpg",
@@ -20,12 +20,8 @@ function App() {
 ])
   let navigate = useNavigate();
 
-
   return (
     <div className="App">
-
-  
-
 
       <Navbar bg="dark" variant="dark">
         <Container>
@@ -55,21 +51,23 @@ function App() {
         </Container>}/>
 
         <Route path="/detail/:id" element={<Detail shoes={shoes} />}/>
-
         <Route path="/event" element={<Event/>}>
           <Route path="one" element={<div>첫 주문시 양배추즙 서비스</div>}/>
           <Route path="two" element={<div>생일기념 쿠폰받기</div>}/>
           </Route>
-
-        </Routes>
+        </Routes> 
         
         <button onClick={()=>{
-        axios.get('https://codingapple1.github.io/shop/data2.json')
-        .then((data)=>{ 
-          console.log(data.data) })
-      }}>버튼</button>
+          axios.get('https://codingapple1.github.io/shop/data2.json')
+          .then((response)=>{ 
+                let copy = [...shoes, ...response.data];
+                setShoes(copy);
+            })
+        }}
 
-
+        
+        
+      >버튼</button>
     </div>
   );
 } 
