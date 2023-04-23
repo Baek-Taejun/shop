@@ -93,5 +93,9 @@ function TapContent({tap}){
 //     return <div>내용3</div>
 // }
 return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tap]
+return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tap]
+return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tap]
+return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tap]
+return [<div>내용1</div>, <div>내용2</div>, <div>내용3</div>][tap]
 }
 export default Detail;
