@@ -47,9 +47,9 @@ function App() {
 
       <Container>
         <Row>
-          <Card shoes={shoes[0]} i={1}></Card>
-          <Card shoes={shoes[1]} i={2}></Card>
-          <Card shoes={shoes[2]} i={3}></Card>
+          {shoes.map((a, i) => {
+            return <Card shoes={shoes[i]} i={i}></Card>;
+          })}
         </Row>
       </Container>
 
@@ -89,7 +89,9 @@ function Card(props) {
   return (
     <Col>
       <img
-        src={"https://codingapple1.github.io/shop/shoes" + props.i + ".jpg"}
+        src={
+          "https://codingapple1.github.io/shop/shoes" + (props.i + 1) + ".jpg"
+        }
         width="80%"
       />
       <h4>{props.shoes.title}</h4>
