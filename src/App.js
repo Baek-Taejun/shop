@@ -60,6 +60,28 @@ function App() {
                   })}
                 </Row>
               </Container>{" "}
+              {/* 서버에 겟요청 하는 법  */}
+              <button
+                onClick={() => {
+                  axios
+                    .get("https://codingapple1.github.io/shop/data3.json")
+                    .then((result) => {
+                      let copy = [...shoes, ...result.data];
+                      setShoes(copy);
+                    });
+
+                  // url을 여러개 받고 싶을떄는 Promise.all을 사용
+                  // Promise.all([axios.get(`/url1`), axios.get(`/url2`)]);
+                  // .then(()=>{
+                  // })
+                  // 겟 요청이 실패했을때 사용
+                  // .catch(()=>{
+                  //   console.log('실패함')
+                  // })
+                }}
+              >
+                더보기
+              </button>
             </>
           }
         />
@@ -81,18 +103,6 @@ function App() {
 
       {/* JSX로도 이미지 나타내기 가능(css에서도 가능)  import 해야함 */}
       {/* 상품 목록 */}
-      <button
-        onClick={() => {
-          axios
-            .get("https://codingapple1.github.io/shop/data2.json")
-            .then((response) => {
-              let copy = [...shoes, ...response.data];
-              setShoes(copy);
-            });
-        }}
-      >
-        더보기
-      </button>
     </div>
   );
 }
