@@ -109,6 +109,36 @@ function Detail(props) {
             버튼2
           </Nav.Link>
         </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            onClick={() => {
+              setTap(0);
+            }}
+            eventKey="link-0"
+          >
+            버튼0
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            onClick={() => {
+              setTap(1);
+            }}
+            eventKey="link-1"
+          >
+            버튼1
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            onClick={() => {
+              setTap(2);
+            }}
+            eventKey="link-2"
+          >
+            버튼2
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
       {/* 선택창 넣기 1번째 hmml ,css로 미리 디자인 */}
       {/* 2번째는 상태 저장해둘 스테이트 필요 */}
