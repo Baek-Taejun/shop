@@ -70,6 +70,8 @@ function App() {
                       setShoes(copy);
                     });
 
+                  // JSON 자료라고함 문자취급
+                  // "{"name" : "kim"}"
                   // url을 여러개 받고 싶을떄는 Promise.all을 사용
                   // Promise.all([axios.get(`/url1`), axios.get(`/url2`)]);
                   // .then(()=>{

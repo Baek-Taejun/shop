@@ -109,38 +109,8 @@ function Detail(props) {
             버튼2
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            onClick={() => {
-              setTap(0);
-            }}
-            eventKey="link-0"
-          >
-            버튼0
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            onClick={() => {
-              setTap(1);
-            }}
-            eventKey="link-1"
-          >
-            버튼1
-          </Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link
-            onClick={() => {
-              setTap(2);
-            }}
-            eventKey="link-2"
-          >
-            버튼2
-          </Nav.Link>
-        </Nav.Item>
       </Nav>
-      {/* 선택창 넣기 1번째 hmml ,css로 미리 디자인 */}
+      {/* 선택창 넣기 1번째 html ,css로 미리 디자인 */}
       {/* 2번째는 상태 저장해둘 스테이트 필요 */}
       {/* 3번쟤 스테이트에 따라서 ui가 어떻게 보일지 작성 */}
       {/* 일반 if조건문을 쓰려면 바깥에서 써야함 */}
@@ -168,7 +138,7 @@ function TapContent({ tap }) {
   //}
 
   return (
-    <div className="{`start` ${fade}}">
+    <div className={`start` + fade}>
       {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tap]}
     </div>
   );
