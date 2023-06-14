@@ -125,8 +125,14 @@ function TapContent({ tap }) {
   let [fade, setFade] = useState("");
 
   useEffect(() => {
-    setFade("end");
-  });
+    setTimeout(() => {
+      setFade("end");
+    }, 100);
+
+    return () => {
+      setFade("");
+    };
+  }, [tap]);
   // if (props.tap == 0) {
   //   return <div>내용0</div>;
   // }
@@ -138,7 +144,7 @@ function TapContent({ tap }) {
   //}
 
   return (
-    <div className={`start` + fade}>
+    <div className={`start ` + fade}>
       {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tap]}
     </div>
   );

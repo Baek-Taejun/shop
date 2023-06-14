@@ -7,6 +7,7 @@ import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./pages/Detail.js";
 import axios from "axios";
+import Cart from "./pages/Cart.js";
 
 function App() {
   let [shoes, setShoes] = useState(data); //상품데이터 import해서 data.js에서 가져옴//
@@ -28,7 +29,7 @@ function App() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/detail");
+                navigate("/Detail");
               }}
             >
               Detail
@@ -89,10 +90,11 @@ function App() {
         />
         {/* 페이지를 여러개 만들고 싶으면 URL파라미터(id)를 사용 */}
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+        <Route path="/cart" element={<Cart />} />
         {/* 404 페이지 만드는법 *를 넣어준다. */}
         {/* <Route path="*" element={<div>없는페이지</div>} /> */}
         {/* Nested Routers 네스트란 테크안에 테그가 들어간것 사용법 /여러 유사 페이지가 필요할때 좋음*/}
-        {/* <Route path="/about" element={<About />}>
+        {/* <Route path="/about" element={<About />}>  
           <Route path="member" element={<div>멤버임</div>} />
           <Route path="location" element={<div>위치임</div>} />
         </Route> */}
