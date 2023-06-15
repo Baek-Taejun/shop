@@ -10,8 +10,11 @@ let user = createSlice({
     increase(state) {
       state.age += 1;
     },
+    
   },
 });
+
+
 
 export let { changeName, increase } = user.actions;
 export default user;

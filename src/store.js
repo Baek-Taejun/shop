@@ -19,6 +19,8 @@ let cart = createSlice({
   },
 });
 
+
+
 // 요기 밑에다 등록해야 사용할수 있음
 export default configureStore({
   reducer: {
