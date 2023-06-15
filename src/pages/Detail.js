@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 // css파일까지 가지않고 이 라이버리를 사용하면 js파일에서 가능
 import styled from "styled-components";
 import { Nav } from "react-bootstrap";
+import { addItem } from "./../store.js";
+import { useDispatch } from "react-redux";
 
 // 빽틱 넣어서 만듬// 이렇게 프롭스를 뚤어 놓으면 프롭스만 살짝 바꾸면 컴포넌트 재활용이 가능 예:버튼의 색깔은 자식만 바꾸면 됨
 // let YellowBtn = styled.button`
@@ -16,6 +18,7 @@ function Detail(props) {
   // let [num, setNum] = useState("");
   let [tap, setTap] = useState(0);
   let [alert, setAlert] = useState(true);
+  let dispatch = useDispatch();
 
   // 마운트나 업데이트시 코드를 실행시켜주는 useEffect
   // 유즈이펙트 안에 있는 코드는 html 렌더링 후에 동작한다.
@@ -74,7 +77,14 @@ function Detail(props) {
           <h4 className="pt-5">{찾는상품.title}</h4>
           <p>{찾는상품.content}</p>
           <p>{찾는상품.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              dispatch(addItem({ id: 1, name: "Red Knit", count: 1 }));
+            }}
+          >
+            주문하기
+          </button>
         </div>
       </div>
       {/* 디폴트키는 제일처음 사이트 접속했을때 눌러져있음 */}

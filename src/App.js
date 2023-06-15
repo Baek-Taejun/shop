@@ -8,11 +8,20 @@ import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./pages/Detail.js";
 import axios from "axios";
 import Cart from "./pages/Cart.js";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
   let [shoes, setShoes] = useState(data); //상품데이터 import해서 data.js에서 가져옴//
   // 페이지 이동을 도와주는 navigate훅
   let navigate = useNavigate();
+
+  let result = useQuery(["작명"], () =>
+    axios.get("https://codingapple1.github.io/userdata.json").then((a) => {
+      console.log("요청");
+      return a.data;
+    })
+  );
+
   return (
     <div className="App">
       {/* 상단바  */}
@@ -34,6 +43,11 @@ function App() {
             >
               Detail
             </Nav.Link>
+          </Nav>
+          <Nav className="ms-auto">
+            {result.isLoading && "로딩중"}
+            {result.error && " 에러남"}
+            {result.data && result.data.name}
           </Nav>
         </Container>
       </Navbar>

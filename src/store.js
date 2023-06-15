@@ -16,10 +16,11 @@ let cart = createSlice({
     addCount(state, action) {
       state[action.payload].count++;
     },
+    addItem(state, action) {
+      state.push(action.payload);
+    },
   },
 });
-
-
 
 // 요기 밑에다 등록해야 사용할수 있음
 export default configureStore({
@@ -30,4 +31,4 @@ export default configureStore({
   },
 });
 
-export let { addCount } = cart.actions;
+export let { addCount, addItem } = cart.actions;
