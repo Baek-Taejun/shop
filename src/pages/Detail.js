@@ -7,16 +7,16 @@ import { addItem } from "./../store.js";
 import { useDispatch } from "react-redux";
 
 // 빽틱 넣어서 만듬// 이렇게 프롭스를 뚤어 놓으면 프롭스만 살짝 바꾸면 컴포넌트 재활용이 가능 예:버튼의 색깔은 자식만 바꾸면 됨
-// let YellowBtn = styled.button`
-//   background: ${(props) => props.bg};
-//   color: ${(props) => (props.bg == "blue" ? "white" : "black")};
-//   padding: 10px;
-// `;
+let YellowBtn = styled.button`
+  background: ${(props) => props.bg};
+  color: ${(props) => (props.bg == "blue" ? "white" : "black")};
+  padding: 10px;
+`;
 
 function Detail(props) {
   // let [IsVisible, setIsVisible] = useState(true);
   // let [num, setNum] = useState("");
-  let [tap, setTap] = useState(0);
+  let [tap, setTap] = useState("");
   let [alert, setAlert] = useState(true);
   let dispatch = useDispatch();
 
@@ -29,12 +29,7 @@ function Detail(props) {
   // 유즈이펙트 안에 리턴문을 넣으면 클린업 펑션으로 사용할수 있다. 기존코드를 지우는데 많이 사용
   // 클린업 펑션은 마운트 될때는 작동 안함
 
-  useEffect(() => {
-    setTimeout(() => {
-      setAlert(false);
-    }, 2000);
-  }, []);
-  let [count, setCount] = useState(0);
+  let [count, setCount] = useState("");
   // useEffect(() => {
   //   if (isNaN(num) == true) {
   //     alert("숫자만 입력해주세요");
@@ -52,13 +47,19 @@ function Detail(props) {
     return x.id == id;
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert(false);
+    }, 5000);
+  }, []);
+
   return (
     <div className="container">
-      {/* <YellowBtn>버튼</YellowBtn> */}
-      {/* {alert == true ? (
-        <div className="alert alert-warning">2초이내 구입시 할인 </div>
+      {alert === true ? (
+        <div className="alert alert-warning">5초이내 구입시 할인 </div>
       ) : null}
-      {count} */}
+      {count}
+
       {/* <button
         onClick={() => {
           setCount(count + 1);

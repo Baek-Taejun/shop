@@ -4,10 +4,10 @@ import { changeName, increase } from "./../store/userSlice.js";
 import { addCount } from "./../store.js";
 import { useState } from "react";
 
-let Child = memo(function () {
+let Child = function () {
   console.log("재랜더");
   return <div>자식임</div>;
-});
+};
 
 // return의 state는 어떤 스테이트를 쓸지 적어야 한다.
 function Cart() {
